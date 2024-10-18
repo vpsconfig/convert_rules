@@ -1,0 +1,92 @@
+name: Build rules
+
+on:
+  workflow_dispatch:
+  # 每天 2:40 (UTC+8) 触发一次
+  schedule:
+    - cron: '40 18 * * *'
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: vpsconfig/convert_rules
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set Environment Variables and Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          echo "BUILDTIME=$(TZ=Asia/Shanghai date +'%Y-%m-%d %H:%M')" >> $GITHUB_ENV
+          echo "REPODIR=$PWD" >> $GITHUB_ENV
+          wget -P ./rule/Clash/Hijacking/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Hijacking/Hijacking_OCD_Domain.txt
+          wget -P ./rule/Clash/Hijacking/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Hijacking/Hijacking_OCD_IP.txt
+          wget -P ./rule/Clash/Advertising/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_Domain.txt
+          wget -P ./rule/Clash/Advertising/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_IP.txt
+          wget -P ./rule/Clash/Lan/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Lan/Lan_OCD_Domain.txt
+          wget -P ./rule/Clash/Lan/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Lan/Lan_OCD_IP.txt
+          wget -P ./rule/Clash/ChinaMax/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_OCD_Domain.txt
+          wget -P ./rule/Clash/ChinaMax/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_OCD_IP.txt
+          wget -P ./rule/Clash/PrivateTracker/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/PrivateTracker/PrivateTracker_OCD_Domain.txt
+          wget -P ./rule/Clash/PrivateTracker/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/PrivateTracker/PrivateTracker_OCD_IP.txt
+          wget -P ./rule/Clash/OpenAI/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/OpenAI/OpenAI_OCD_Domain.txt
+          wget -P ./rule/Clash/OpenAI/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/OpenAI/OpenAI_OCD_IP.txt
+          wget -P ./rule/Clash/Copilot/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Copilot/Copilot_OCD_Domain.txt
+          wget -P ./rule/Clash/Copilot/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Copilot/Copilot_OCD_IP.txt
+          wget -P ./rule/Clash/Telegram/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Telegram/Telegram_OCD_Domain.txt
+          wget -P ./rule/Clash/Telegram/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Telegram/Telegram_OCD_IP.txt
+          wget -P ./rule/Clash/Google/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Google/Google_OCD_Domain.txt
+          wget -P ./rule/Clash/Google/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Google/Google_OCD_IP.txt
+          wget -P ./rule/Clash/Apple/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Apple/Apple_OCD_Domain.txt
+          wget -P ./rule/Clash/Apple/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Apple/Apple_OCD_IP.txt
+          wget -P ./rule/Clash/SteamCN/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/SteamCN/SteamCN_OCD_Domain.txt
+          wget -P ./rule/Clash/Game/GameDownloadCN/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN_OCD_Domain.txt
+          wget -P ./rule/Clash/Gemini/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Gemini/Gemini_OCD_Domain.txt
+          wget -P ./rule/Clash/Claude/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Claude/Claude_OCD_Domain.txt
+          wget -P ./rule/Clash/Microsoft/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Microsoft/Microsoft_OCD_Domain.txt
+          wget -P ./rule/Clash/Speedtest/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Speedtest/Speedtest_OCD_Domain.txt
+          wget -P ./rule/Clash/GlobalMedia/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia_OCD_Domain.txt
+          wget -O ./rule/Clash/Advertising/Advertising.list https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/refs/heads/master/anti-ad-surge.txt
+
+      # 运行 subconverter, 以使用其规则转换功能
+      - name: Run subconverter
+        run: |
+          curl -s https://api.github.com/repos/tindy2013/subconverter/releases \
+            | grep "browser_download_url.*subconverter_linux64.tar.gz" \
+            | head -n 1 \
+            | cut -d '"' -f 4 \
+            | xargs wget -q
+          tar -xf subconverter_linux64.tar.gz
+          ./subconverter/subconverter &
+          python3 -m http.server 56290 --bind 127.0.0.1 --directory './rule/' &
+
+      - name: Verify environment
+        run: |
+          if [ ! -f "./script/convert_rules.sh" ]; then
+            echo "convert_rules.sh not found. Exiting."
+            exit 1
+          fi
+
+      # 执行规则转换脚本
+      - name: Execute convert script
+        run: |
+          chmod +x ./script/convert_rules.sh
+          ./script/convert_rules.sh
+
+      - name: Commit and Push Changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git add --all
+            git commit -m "Builded on ${{ env.BUILDTIME }}"
+            git push origin main
+          else
+            echo "No changes to commit"
+          fi
