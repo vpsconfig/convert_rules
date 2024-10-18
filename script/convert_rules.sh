@@ -50,7 +50,7 @@ find . -name "*_OCD_*.txt" | while read -r file; do
     first_line=$(head -n 1 "$file")
     # 检查第一行是否包含 'payload'
     if [[ "$first_line" == *"payload"* ]]; then
-        # 如果包含 'payload'，则删除第一行
+        # 如果包含 'payload'，则删除
         sed -i '1d' "$file"
     fi
     # 删除所有单引号、减号和空格
