@@ -27,34 +27,34 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           echo "BUILDTIME=$(TZ=Asia/Shanghai date +'%Y-%m-%d %H:%M')" >> $GITHUB_ENV
           echo "REPODIR=$PWD" >> $GITHUB_ENV
-          wget -P ./rule/Clash/Hijacking/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Hijacking/Hijacking_OCD_Domain.txt
-          wget -P ./rule/Clash/Hijacking/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Hijacking/Hijacking_OCD_IP.txt
-          wget -P ./rule/Clash/Advertising/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_Domain.txt
-          wget -P ./rule/Clash/Advertising/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_IP.txt
-          wget -P ./rule/Clash/Lan/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Lan/Lan_OCD_Domain.txt
-          wget -P ./rule/Clash/Lan/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Lan/Lan_OCD_IP.txt
-          wget -P ./rule/Clash/ChinaMax/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_OCD_Domain.txt
-          wget -P ./rule/Clash/ChinaMax/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_OCD_IP.txt
-          wget -P ./rule/Clash/PrivateTracker/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/PrivateTracker/PrivateTracker_OCD_Domain.txt
-          wget -P ./rule/Clash/PrivateTracker/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/PrivateTracker/PrivateTracker_OCD_IP.txt
-          wget -P ./rule/Clash/OpenAI/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/OpenAI/OpenAI_OCD_Domain.txt
-          wget -P ./rule/Clash/OpenAI/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/OpenAI/OpenAI_OCD_IP.txt
-          wget -P ./rule/Clash/Copilot/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Copilot/Copilot_OCD_Domain.txt
-          wget -P ./rule/Clash/Copilot/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Copilot/Copilot_OCD_IP.txt
-          wget -P ./rule/Clash/Telegram/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Telegram/Telegram_OCD_Domain.txt
-          wget -P ./rule/Clash/Telegram/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Telegram/Telegram_OCD_IP.txt
-          wget -P ./rule/Clash/Google/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Google/Google_OCD_Domain.txt
-          wget -P ./rule/Clash/Google/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Google/Google_OCD_IP.txt
-          wget -P ./rule/Clash/Apple/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Apple/Apple_OCD_Domain.txt
-          wget -P ./rule/Clash/Apple/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Apple/Apple_OCD_IP.txt
-          wget -P ./rule/Clash/SteamCN/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/SteamCN/SteamCN_OCD_Domain.txt
-          wget -P ./rule/Clash/Game/GameDownloadCN/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN_OCD_Domain.txt
-          wget -P ./rule/Clash/Gemini/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Gemini/Gemini_OCD_Domain.txt
-          wget -P ./rule/Clash/Claude/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Claude/Claude_OCD_Domain.txt
-          wget -P ./rule/Clash/Microsoft/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Microsoft/Microsoft_OCD_Domain.txt
-          wget -P ./rule/Clash/Speedtest/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Speedtest/Speedtest_OCD_Domain.txt
-          wget -P ./rule/Clash/GlobalMedia/ https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia_OCD_Domain.txt
+          wget -O ./rule/Clash/Hijacking/Hijacking_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Hijacking/Hijacking_OCD_Domain.txt
+          wget -O ./rule/Clash/Hijacking/Hijacking_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Hijacking/Hijacking_OCD_IP.txt
+          wget -O ./rule/Clash/Advertising/Advertising_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_Domain.txt
+          wget -O ./rule/Clash/Advertising/Advertising_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_IP.txt
+          wget -O ./rule/Clash/Lan/Lan_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Lan/Lan_OCD_Domain.txt
+          wget -O ./rule/Clash/Lan/Lan_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Lan/Lan_OCD_IP.txt
+          wget -O ./rule/Clash/ChinaMax/ChinaMax_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_OCD_Domain.txt
+          wget -O ./rule/Clash/ChinaMax/ChinaMax_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_OCD_IP.txt
+          wget -O ./rule/Clash/PrivateTracker/PrivateTracker_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/PrivateTracker/PrivateTracker_OCD_Domain.txt
+          wget -O ./rule/Clash/PrivateTracker/PrivateTracker_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/PrivateTracker/PrivateTracker_OCD_IP.txt
+          wget -O ./rule/Clash/OpenAI/OpenAI_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/OpenAI/OpenAI_OCD_Domain.txt
+          wget -O ./rule/Clash/OpenAI/OpenAI_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/OpenAI/OpenAI_OCD_IP.txt
+          wget -O ./rule/Clash/Copilot/Copilot_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Copilot/Copilot_OCD_Domain.txt
+          wget -O ./rule/Clash/Copilot/Copilot_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Copilot/Copilot_OCD_IP.txt
+          wget -O ./rule/Clash/Telegram/Telegram_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Telegram/Telegram_OCD_Domain.txt
+          wget -O ./rule/Clash/Telegram/Telegram_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Telegram/Telegram_OCD_IP.txt
+          wget -O ./rule/Clash/Google/Google_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Google/Google_OCD_Domain.txt
+          wget -O ./rule/Clash/Google/Google_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Google/Google_OCD_IP.txt
+          wget -O ./rule/Clash/Apple/Apple_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Apple/Apple_OCD_Domain.txt
+          wget -O ./rule/Clash/Apple/Apple_OCD_IP.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Apple/Apple_OCD_IP.txt
+          wget -O ./rule/Clash/SteamCN/SteamCN_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/SteamCN/SteamCN_OCD_Domain.txt
+          wget -O ./rule/Clash/Gemini/Gemini_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Gemini/Gemini_OCD_Domain.txt
+          wget -O ./rule/Clash/Claude/Claude_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Claude/Claude_OCD_Domain.txt
+          wget -O ./rule/Clash/Microsoft/Microsoft_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Microsoft/Microsoft_OCD_Domain.txt
+          wget -O ./rule/Clash/Speedtest/Speedtest_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Speedtest/Speedtest_OCD_Domain.txt
+          wget -O ./rule/Clash/GlobalMedia/GlobalMedia_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia_OCD_Domain.txt
           wget -O ./rule/Clash/Advertising/Advertising.list https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/refs/heads/master/anti-ad-surge.txt
+          wget -O ./rule/Clash/Game/GameDownloadCN/GameDownloadCN_OCD_Domain.txt https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN_OCD_Domain.txt
 
       # 运行 subconverter, 以使用其规则转换功能
       - name: Run subconverter
