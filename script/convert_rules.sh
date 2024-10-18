@@ -56,7 +56,8 @@ find . -name "*_OCD_*.txt" | while read -r file; do
     # 删除所有单引号、减号和空格
     sed -i "s/'//g; s/-//g; s/[[:space:]]//g" "$file"
 
-    # 获取文件名，不包含路径和扩展名
+    # 获取文件的目录路径和文件名（不包含扩展名）
+    file_dir=$(dirname "$file")
     filename=$(basename "$file" .txt)
     # 判断文件名中是否包含 "Domain" 或 "IP" 来选择参数
     if [[ "$filename" == *_OCD_Domain* ]]; then
@@ -67,11 +68,13 @@ find . -name "*_OCD_*.txt" | while read -r file; do
         echo "未识别的文件类型: $file"
         continue
     fi
+    # 设置输出的 .mrs 文件路径，使其与原文件目录一致
+    output_file="$file_dir/$filename.mrs"
     # 使用 mihomo convert-ruleset 进行转换
-    /usr/bin/mihomo convert-ruleset "$param" text "$file" "$filename.mrs"
+    /usr/bin/mihomo convert-ruleset "$param" text "$file" "$output_file"
     # 输出转换状态
     if [[ $? -eq 0 ]]; then
-        echo "文件 $file 转换成功为 $filename.mrs"
+        echo "文件 $file 转换成功为 $output_file"
     else
         echo "文件 $file 转换失败"
     fi
