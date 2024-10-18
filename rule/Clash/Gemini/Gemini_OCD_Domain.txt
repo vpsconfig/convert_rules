@@ -1,3 +1,4 @@
+alkalimakersuitepa.clients6.google.com
 makersuite.google.com
 +.bard.google.com
 +.deepmind.com

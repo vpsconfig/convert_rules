@@ -1,3 +1,4 @@
+appleevents.akamaized.net
 appleworldwidedeveloper.hbapi.omtrdc.net
 appleworldwidedeveloper.sc.omtrdc.net
 beatselectronicsllc.tt.omtrdc.net

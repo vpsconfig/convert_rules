@@ -1,3 +1,4 @@
+instant.arubanetworks.com
 oasisauth.h3c.com
 router.asus.com
 setmeup.arubanetworks.com
