@@ -24,7 +24,7 @@ download_and_check() {
     fi
 }
 
-# 遍历所有 .list 文件
+# 遍历所有 .list 文件, 转换为 .yaml 文件
 find . -name "*.list" | while read -r file; do
     # 去掉前缀的 "./" 并生成对应的本地 URL
     RAW_URL="$BASE_URL/${file#./}"
@@ -44,10 +44,30 @@ find . -name "*.list" | while read -r file; do
 
 done
 
-# 遍历所有转换后的 .txt 文件
+# 遍历所有 *_OCD_*.txt 文件, 转换为实际可用的格式和 .mrs 文件
 find . -name "*_OCD_*.txt" | while read -r file; do
     # 删除第一行
     sed -i '1d' "$file"
     # 删除所有单引号、减号和空格
     sed -i "s/'//g; s/-//g; s/[[:space:]]//g" "$file"
+
+    # 获取文件名，不包含路径和扩展名
+    filename=$(basename "$file" .txt)
+    # 判断文件名中是否包含 "Domain" 或 "IP" 来选择参数
+    if [[ "$filename" == *_OCD_Domain* ]]; then
+        param="domain"
+    elif [[ "$filename" == *_OCD_IP* ]]; then
+        param="ipcidr"
+    else
+        echo "未识别的文件类型: $file"
+        continue
+    fi
+    # 使用 mihomo convert-ruleset 进行转换
+    /usr/bin/mihomo convert-ruleset "$param" text "$file" "$filename.mrs"
+    # 输出转换状态
+    if [[ $? -eq 0 ]]; then
+        echo "文件 $file 转换成功为 $filename.mrs"
+    else
+        echo "文件 $file 转换失败"
+    fi
 done
