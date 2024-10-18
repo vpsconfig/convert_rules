@@ -1,3 +1,4 @@
+api.msn.com
 api.statsig.com
 assets.msn.com
 browserintakedatadoghq.com

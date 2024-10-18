@@ -1,3 +1,4 @@
+appldnld.apple.com.edgesuite.net
 appleevents.akamaized.net
 appleworldwidedeveloper.hbapi.omtrdc.net
 appleworldwidedeveloper.sc.omtrdc.net

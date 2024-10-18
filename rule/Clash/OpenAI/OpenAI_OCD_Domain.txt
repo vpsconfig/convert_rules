@@ -1,3 +1,4 @@
+browserintakedatadoghq.com
 chat.openai.com.cdn.cloudflare.net
 gemini.google.com
 openaiapi.arkoselabs.com
