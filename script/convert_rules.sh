@@ -46,8 +46,13 @@ done
 
 # 遍历所有 *_OCD_*.txt 文件, 转换为实际可用的格式和 .mrs 文件
 find . -name "*_OCD_*.txt" | while read -r file; do
-    # 删除第一行
-    sed -i '1d' "$file"
+    # 读取文件的第一行
+    first_line=$(head -n 1 "$file")
+    # 检查第一行是否包含 'payload'
+    if [[ "$first_line" == *"payload"* ]]; then
+        # 如果包含 'payload'，则删除第一行
+        sed -i '1d' "$file"
+    fi
     # 删除所有单引号、减号和空格
     sed -i "s/'//g; s/-//g; s/[[:space:]]//g" "$file"
 

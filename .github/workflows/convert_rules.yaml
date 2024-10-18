@@ -76,7 +76,7 @@ jobs:
             | head -n 1 \
             | cut -d '"' -f 4 \
             | xargs wget -q -O mihomo-linux-amd64-alpha.deb
-          apt install --fix-missing ./mihomo-linux-amd64-alpha.deb
+          sudo apt install --fix-missing ./mihomo-linux-amd64-alpha.deb
           /usr/bin/mihomo &
 
       - name: Verify environment
