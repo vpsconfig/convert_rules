@@ -1,4 +1,3 @@
-api.statsig.com
 assets.msn.com
 browserintakedatadoghq.com
 chat.openai.com.cdn.cloudflare.net
