@@ -54,7 +54,7 @@ jobs:
           mkdir -p $(dirname ./rule/Clash/Speedtest/Speedtest_OCD_Domain.mrs) && wget -O ./rule/Clash/Speedtest/Speedtest_OCD_Domain.mrs https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Speedtest/Speedtest_OCD_Domain.mrs
           mkdir -p $(dirname ./rule/Clash/GlobalMedia/GlobalMedia_OCD_Domain.mrs) && wget -O ./rule/Clash/GlobalMedia/GlobalMedia_OCD_Domain.mrs https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia_OCD_Domain.mrs
           mkdir -p $(dirname ./rule/Clash/OneDrive/OneDrive_OCD_Domain.mrs) && wget -O ./rule/Clash/OneDrive/OneDrive_OCD_Domain.mrs https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/OneDrive/OneDrive_OCD_Domain.mrs
-          wget -O ./rule/Clash/Advertising/Advertising.list https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/refs/heads/master/anti-ad-surge.txt
+          mkdir -p $(dirname ./rule/Clash/Advertising/Advertising.list) && wget -O ./rule/Clash/Advertising/Advertising.list https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/refs/heads/master/anti-ad-surge.txt
 
       # 运行 subconverter, 其规则转换功能可以将 .list 转为 .yaml
       - name: Run subconverter
